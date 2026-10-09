@@ -11,10 +11,12 @@ jobs:
       - name: Lay code tu repository
         uses: actions/checkout@v4
 
-      - name: Kiem tra file index.html ton tai (buoc Build/Test)
+      
+      - name: Kiem tra file index.html
         run: |
-          test -f site/index.html && echo "OK: index.html ton tai"
-          grep -q "Hoang Sang" site/index.html && echo "CANH BAO: chua thay ten!" && exit 1 || echo "OK: da dien thong tin ca nhan"
+          test -f site/index.html
+          grep -q "Website deploy tu dong bang CI/CD" site/index.html
+          echo "OK: Da kiem tra file HTML"
 
       - name: Cau hinh AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
